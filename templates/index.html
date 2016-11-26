@@ -1,0 +1,32 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-4.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+	<head th:replace="header.html::head"/>
+	<body onload="prettyPrint()">
+	<div id="wrap">
+		<div th:replace="menu.html::menu"/>
+		<div class="container">
+			<div class="page-header">
+				<h1>Blog</h1>
+			</div>
+			
+			<div th:each="post : ${published_posts}">
+				<a th:href='${post.uri}' href='href'><h1 th:text='${post.title}'>title</h1></a>
+				<p th:text='${#dates.format(post.date,"dd MMMM yyyy")}'>date</p>
+				<p th:utext='${post.body}'>body</p>
+			</div>
+				
+			<div th:if="${not config.index_paginate} or ${previousFileName != null} or ${nextFileName != null}">
+				<hr />
+			
+				<a th:if="${previousFileName != null}" th:href="${previousFileName}">Previous</a>
+				<span th:if="${previousFileName != null} and ${nextFileName != null}"></span>
+				<a th:if="${nextFileName != null}" th:href="${nextFileName}">Next</a>
+				
+				<p>Older posts are available in the <a th:href='${content.rootpath+config.archive_file}' href='href'>archive</a>.</p>
+			</div>
+		</div>
+	</div>
+	<div th:replace="footer.html::footer"></div>
+	</body>
+</html>
