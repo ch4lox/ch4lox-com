@@ -9,5 +9,5 @@ addons:
 directories:
   - $HOME/helpers
 before_install:
-  - mkdir -p $HOME/helpers && wget -nc -O $HOME/helpers/jbake-2.5.0.zip http://hash.to/5HQ && unzip -d $HOME/helpers/jbake-2.5.0 $HOME/helpers/jbake-2.5.0.zip
+  - mkdir -p $HOME/helpers && wget -nc -O $HOME/helpers/jbake-2.5.0.zip http://jbake.org/files/jbake-2.5.0-bin.zip && unzip -d $HOME/helpers $HOME/helpers/jbake-2.5.0.zip
 script: $HOME/helpers/jbake-2.5.0/bin/jbake -b
