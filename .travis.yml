@@ -9,6 +9,12 @@ addons:
 cache:
   directories:
     - build/helpers
-before_install: clean.sh
-script: build.sh
-after_success: deploy.sh
+before_install:
+  - cd project
+before_script:
+  - clean.sh
+script:
+  - build.sh
+after_success:
+  - deploy.sh
+
