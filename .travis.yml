@@ -3,17 +3,16 @@ language: c
 addons:
   apt:
     packages:
+    - wget
     - unzip
+    - rsync
     - oracle-java8-installer
     - oracle-java8-set-default
 cache:
   directories:
     - build/helpers
-before_install:
-  - cd project
-before_script:
-  - clean.sh
 script:
+  - clean.sh
   - build.sh
 after_success:
   - deploy.sh
