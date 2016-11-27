@@ -20,6 +20,7 @@ script:
   - ./build.sh
 after_success:
   - cd $TRAVIS_BUILD_DIR
+  - git config --global push.default simple
   - 'if [ "$TRAVIS_PULL_REQUEST" = "false" ]; then ./deploy.sh; fi'
 
 

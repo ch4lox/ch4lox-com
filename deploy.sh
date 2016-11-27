@@ -32,7 +32,7 @@ rsync -av --del --exclude='/.git' --exclude='/README.md' --exclude='CNAME' build
 
 cd ${TEMP_DIR}
 
-git add .
+git add --all .
 git commit -m "Deployed using deploy.sh by ${USER} on $(hostname -s) at $(date)"
 git push
 
