@@ -3,6 +3,7 @@ language: c
 addons:
   apt:
     packages:
+    - curl
     - wget
     - unzip
     - rsync
