@@ -15,9 +15,9 @@ if [ ! -z "$DEPLOY_SSH_PRIVATE_KEY" ]; then
 	
 	DEPLOY_SSH_PRIVATE_KEY_FILE=$(mktemp)
 	chmod 600 $DEPLOY_SSH_PRIVATE_KEY_FILE
-	echo $DEPLOY_SSH_PRIVATE_KEY|grep -Eo '\-----[^-]+-----'|head -n 1 > $DEPLOY_SSH_PRIVATE_KEY_FILE
-	echo $DEPLOY_SSH_PRIVATE_KEY|grep -Eo '[^-]{64,}'|grep -Eo '.{,64}' >> $DEPLOY_SSH_PRIVATE_KEY_FILE
-	echo $DEPLOY_SSH_PRIVATE_KEY|grep -Eo '\-----[^-]+-----'|tail -n 1 >> $DEPLOY_SSH_PRIVATE_KEY_FILE
+	echo "$DEPLOY_SSH_PRIVATE_KEY"|grep -Eo '\-----[^-]+-----'|head -n 1 > $DEPLOY_SSH_PRIVATE_KEY_FILE
+	echo "$DEPLOY_SSH_PRIVATE_KEY"|grep -Eo '[^-]{64,}'|grep -Eo '.{,64}' >> $DEPLOY_SSH_PRIVATE_KEY_FILE
+	echo "$DEPLOY_SSH_PRIVATE_KEY"|grep -Eo '\-----[^-]+-----'|tail -n 1 >> $DEPLOY_SSH_PRIVATE_KEY_FILE
 	ssh-add $DEPLOY_SSH_PRIVATE_KEY_FILE
 fi
 
