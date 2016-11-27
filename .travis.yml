@@ -11,8 +11,11 @@ addons:
 cache:
   directories:
     - build/helpers
-script:
+before_install:
+  - cd $TRAVIS_BUILD_DIR
+before_script:
   - clean.sh
+script:
   - build.sh
 after_success:
   - deploy.sh
