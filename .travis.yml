@@ -17,9 +17,8 @@ before_script:
 script:
   - cd $TRAVIS_BUILD_DIR
   - ./build.sh
-deploy:
-  provider: script
-  skip_cleanup: true
-  script: ./deploy.sh
-  on:
-    branch: master
+after_success:
+  - cd $TRAVIS_BUILD_DIR
+  - 'if [ "$TRAVIS_PULL_REQUEST" = "false" ]; then ./deploy.sh; fi
+
+
