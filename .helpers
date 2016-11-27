@@ -1,0 +1,19 @@
+# This file meant to be source'd by the other files
+
+# if you want to use your own version of JBAKE, just set JBAKE_HOME to location of jbake
+if [ -z "$JBAKE_HOME" ]; then
+	JBAKE_VERSION=2.5.0
+	
+	mkdir -p build/helpers
+
+	if [ ! -f build/helpers/jbake-${JBAKE_VERSION}/bin/jbake ]; then
+		if [ -f build/helpers/jbake-${JBAKE_VERSION}.zip ]; then
+			rm build/helpers/jbake-${JBAKE_VERSION}.zip
+		fi
+		wget -O build/helpers/jbake-${JBAKE_VERSION}.zip http://jbake.org/files/jbake-${JBAKE_VERSION}-bin.zip
+		unzip -d build/helpers build/helpers/jbake-${JBAKE_VERSION}.zip
+	fi
+	
+	export JBAKE_HOME=build/helpers/jbake-${JBAKE_VERSION}
+fi
+

@@ -1,2 +1,5 @@
-cache/
-output/
+build/helpers/
+build/output/
+build/cache/
+build/deploy/
+

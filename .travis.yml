@@ -6,8 +6,9 @@ addons:
     - unzip
     - oracle-java8-installer
     - oracle-java8-set-default
-directories:
-  - $HOME/helpers
-before_install:
-  - mkdir -p $HOME/helpers && wget -nc -O $HOME/helpers/jbake-2.5.0.zip http://jbake.org/files/jbake-2.5.0-bin.zip && unzip -d $HOME/helpers $HOME/helpers/jbake-2.5.0.zip
-script: $HOME/helpers/jbake-2.5.0/bin/jbake -b
+cache:
+  directories:
+    - build/helpers
+before_install: clean.sh
+script: build.sh
+after_success: deploy.sh
