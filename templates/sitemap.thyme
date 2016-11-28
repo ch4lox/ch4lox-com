@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:th="http://www.thymeleaf.org">
+    <url th:each="content: ${published_content}">
+        <loc th:text="${config.site_host+'/'+content.uri}">loc</loc>
+        <lastmod th:text='${#dates.format(content.date,"yyyy-MM-dd")}'>lastmod</lastmod>
+    </url>
+</urlset>

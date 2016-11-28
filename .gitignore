@@ -1,3 +1,26 @@
+#Eclipse Crap, at least they're dotfiles
+.project
+.classpath
+.settings/
+.externalToolBuilders
+.springBeans
+.checkstyle
+
+#Netbeans Crap
+nb-configuration.xml
+nbactions.xml
+profiles.xml
+context.xml
+catalog.xml
+
+#Jetbrains IDEA Crap
+*.iml
+*.imr
+*.ipr
+*.iws
+*.idea 
+.idea/
+
 build/helpers/
 build/output/
 build/cache/
