@@ -10,6 +10,9 @@
 				<h1>Blog</h1>
 			</div>
 			
+			<pre th:text="${@java.lang.System@getenv('USER')}">
+			</pre>
+			
 			<div th:each="post : ${published_posts}">
 				<a th:href='${post.uri}' href='href'><h1 th:text='${post.title}'>title</h1></a>
 				<p th:text='${#dates.format(post.date,"dd MMMM yyyy")}'>date</p>

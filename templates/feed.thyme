@@ -7,8 +7,8 @@
 		<description>JBake Bootstrap Template</description>
 		<language>en-us</language>
 
-		<th:block th:with="max_published_date=${published_date.clone()}">
-			<th:block th:with="unused=${max_published_date.setTime(0)}"/>
+		<th:block th:with="max_published_date=${#dates.createNow()},git_commit_unixtime=${@java.lang.System@getenv('GIT_COMMIT_UNIXTIME')},git_commit_date=${#dates.createNow()}">
+			<th:block th:with="_=${max_published_date.setTime(0)},_=${git_commit_unixtime != null ? git_commit_date.setTime(git_commit_unixtime * 1000) : lastbuilddate}"/>
 			
 			<item th:each="post: ${published_posts}" th:with="unused=${post.date.after(max_published_date) ? max_published_date.setTime(post.date.time) : null}">
 				<title th:text='${post.title}'>title</title>
@@ -19,7 +19,7 @@
 			</item>
 			
 			<pubDate th:text='${#dates.format(max_published_date,"EEE, d MMM yyyy HH:mm:ss Z")}'>pubdate</pubDate>
-			<lastBuildDate th:text='${#dates.format(max_published_date,"EEE, d MMM yyyy HH:mm:ss Z")}'>lastbuilddate</lastBuildDate>
+			<lastBuildDate th:text='${#dates.format(git_commit_date,"EEE, d MMM yyyy HH:mm:ss Z")}'>lastbuilddate</lastBuildDate>
 		</th:block>
 	</channel>
 </rss>

@@ -3,10 +3,6 @@ language: c
 addons:
   apt:
     packages:
-    - curl
-    - wget
-    - unzip
-    - rsync
     - oracle-java8-installer
     - oracle-java8-set-default
 cache:
