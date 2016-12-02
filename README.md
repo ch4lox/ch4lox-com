@@ -6,3 +6,4 @@ ch4lox static site generator
 builds with https://travis-ci.org/ch4lox/ch4lox-com
 
 deploys to https://github.com/ch4lox/ch4lox.github.io
+
