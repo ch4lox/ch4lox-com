@@ -11,16 +11,13 @@ addons:
     - oracle-java8-set-default
 cache:
   directories:
-    - build/helpers
+    - crayon-architect/cache
 before_script:
   - cd $TRAVIS_BUILD_DIR
-  - ./clean.sh
+  - crayon-architect/clean.sh
 script:
   - cd $TRAVIS_BUILD_DIR
-  - ./build.sh
+  - crayon-architect/build.sh
 after_success:
   - cd $TRAVIS_BUILD_DIR
-  - git config --global push.default simple
-  - 'if [ "$TRAVIS_PULL_REQUEST" = "false" ]; then ./deploy.sh; fi'
-
-
+  - crayon-architect/deploy.sh

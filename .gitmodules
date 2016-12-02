@@ -1,0 +1,3 @@
+[submodule "crayon-architect"]
+	path = crayon-architect
+	url = git@github.com:ch4lox/crayon-architect.git
