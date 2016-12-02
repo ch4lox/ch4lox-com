@@ -30,9 +30,9 @@ CRAYON_CMD_SERVE="${JBAKE_HOME}/bin/jbake -b -s"
 CRAYON_POST_SERVE=()
 #
 # These are 'sourced' before the deploy command
-CRAYON_PRE_DEPLOY=("${CRAYON_ARCHITECT_DIR}/deploy_helpers/travis-pre.inc.sh")
+CRAYON_PRE_DEPLOY=("${CRAYON_ARCHITECT_DIR}/deploy_helpers/jbake-pre.inc.sh" "${CRAYON_ARCHITECT_DIR}/deploy_helpers/travis-pre.inc.sh")
 # Deploy tool command
 CRAYON_CMD_DEPLOY="${CRAYON_ARCHITECT_DIR}/deploy_helpers/git-deploy.cmd.sh"
 # These are 'sourced' after a successful deploy command
-CRAYON_POST_DEPLOY=()
+CRAYON_POST_DEPLOY=("${CRAYON_ARCHITECT_DIR}/deploy_helpers/cloudflare-post.inc.sh")
 
