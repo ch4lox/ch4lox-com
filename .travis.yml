@@ -15,6 +15,7 @@ script:
   - cd $TRAVIS_BUILD_DIR
   - crayon-architect/build.sh
 deploy:
+  skip_cleanup: true
   provider: script
   on:
     branch: master
